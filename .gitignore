@@ -1,4 +1,7 @@
 bin/
 obj/
 
+licence.txt
+licence_script.py
+
 *~
