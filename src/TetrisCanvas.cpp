@@ -24,6 +24,8 @@
 
 #include "DrawingContextInfo.h"
 
+namespace tetrisgui {
+
 TetrisCanvas::TetrisCanvas(BaseObjectType* cobject,
                            const Glib::RefPtr<Gtk::Builder>& builder
                               __attribute__((unused))
@@ -61,3 +63,5 @@ bool TetrisCanvas::on_draw(const Cairo::RefPtr<Cairo::Context>& cr) {
 
   return true;
 }
+
+} // namespace tetrisgui.

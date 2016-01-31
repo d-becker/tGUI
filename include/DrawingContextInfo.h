@@ -31,6 +31,7 @@ class DrawingContextInfo
   public:
     DrawingContextInfo(Cairo::RefPtr<Cairo::Context> cr);
     virtual ~DrawingContextInfo();
+
     /**
      * A Cairo context object that should be used when drawing the objects of
      * the tetris library.

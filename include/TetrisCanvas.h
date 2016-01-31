@@ -24,6 +24,8 @@
 
 #include <memory>
 
+namespace tetrisgui {
+
 /**
  * A Gtk::DrawingArea that is associated with a \c tetris::Game object.
  * The canvas' \c on_draw method draws the \c tetris::Game object.
@@ -59,5 +61,7 @@ class TetrisCanvas : public Gtk::DrawingArea
   private:
     std::shared_ptr<tetris::Game> m_game;
 };
+
+} // namespace tetrisgui.
 
 #endif // TETRISCANVAS_H
