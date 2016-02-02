@@ -1,12 +1,39 @@
 # depslib dependency file v1.0
-1454006815 source:/home/danielbecker/Programming/C++/Projects/TetrisGUI/main.cpp
+1454447715 source:/home/danielbecker/Programming/C++/Projects/TetrisGUI/main.cpp
+	<iostream>
+	<gdkmm/rgba.h>
+	<gdkmm/rectangle.h>
+	<gtkmm/window.h>
+	<gtkmm/aspectframe.h>
+	<gtkmm/builder.h>
+	<gtkmm/drawingarea.h>
+	<glibmm/fileutils.h>
+	<glibmm/markup.h>
+	"BasicBlock.h"
+	"BasicBoard.h"
+	"DefaultGame.h"
+	"DefaultGameBoard.h"
+	"Shape.h"
+	"TetrominoO.h"
+	"TetrominoT.h"
+	"TetrisCanvas.h"
+	"BlockDrawingTool.h"
+	"ShapeDrawingTool.h"
+	"BoardDrawingTool.h"
+	"GameBoardDrawingTool.h"
+	"GameDrawingTool.h"
+
+1454435511 source:/home/danielbecker/Programming/C++/Projects/TetrisGUI/src/TetrisCanvas.cpp
+	"TetrisCanvas.h"
+	<stdexcept>
+	<GameBoard.h>
+	<Board.h>
+	"DrawingContextInfo.h"
+	"BlockDrawingTool.h"
+	<cairomm/matrix.h>
 	<iostream>
 
-1454085920 source:/home/danielbecker/Programming/C++/Projects/TetrisGUI/src/TetrisCanvas.cpp
-	"TetrisCanvas.h"
-	"DrawingContextInfo.h"
-
-1454083326 /home/danielbecker/Programming/C++/Projects/TetrisGUI/include/TetrisCanvas.h
+1454275419 /home/danielbecker/Programming/C++/Projects/TetrisGUI/include/TetrisCanvas.h
 	<gtkmm/builder.h>
 	<gtkmm/drawingarea.h>
 	<Game.h>
@@ -3552,29 +3579,510 @@
 	<sigc++/sigc++.h>
 	<gtkmm/widget.h>
 
-1454084713 /home/danielbecker/Programming/C++/Projects/Tetris0.2/include/Game.h
-	"Drawable.h"
+1454424208 /home/danielbecker/Programming/C++/Projects/Tetris0.2/include/Game.h
+	"Drawing.h"
 	"GameBoard.h"
 
 1453891447 /home/danielbecker/Programming/C++/Projects/Tetris0.2/include/Drawable.h
 
-1454085179 source:/home/danielbecker/Programming/C++/Projects/TetrisGUI/src/DrawingContextInfo.cpp
+1454196177 source:/home/danielbecker/Programming/C++/Projects/TetrisGUI/src/DrawingContextInfo.cpp
 	"DrawingContextInfo.h"
 
-1454084003 /home/danielbecker/Programming/C++/Projects/TetrisGUI/include/DrawingContextInfo.h
+1454275345 /home/danielbecker/Programming/C++/Projects/TetrisGUI/include/DrawingContextInfo.h
 	<cairomm/context.h>
 
-1453891447 /home/danielbecker/Programming/C++/Projects/Tetris0.2/include/GameBoard.h
+1454424208 /home/danielbecker/Programming/C++/Projects/Tetris0.2/include/GameBoard.h
 	<memory>
 	<vector>
 	"Coords.h"
-	"Drawable.h"
+	"Drawing.h"
 
 1453891447 /home/danielbecker/Programming/C++/Projects/Tetris0.2/include/Coords.h
 	<iostream>
 
-1453891447 /home/danielbecker/Programming/C++/Projects/Tetris0.2/include/Board.h
+1454424208 /home/danielbecker/Programming/C++/Projects/Tetris0.2/include/Board.h
 	<memory>
 	"Coords.h"
-	"Drawable.h"
+	"Drawing.h"
+
+1454281228 source:/home/danielbecker/Programming/C++/Projects/TetrisGUI/src/ColouredBlock.cpp
+	"ColouredBlock.h"
+	<gdkmm/general.h>
+
+1454316641 /home/danielbecker/Programming/C++/Projects/TetrisGUI/include/ColouredBlock.h
+	"BasicBlock.h"
+	<gdkmm/rgba.h>
+	"DrawingContextInfo.h"
+
+1453891447 /home/danielbecker/Programming/C++/Projects/Tetris0.2/include/BasicBlock.h
+	"Block.h"
+
+1454424208 /home/danielbecker/Programming/C++/Projects/Tetris0.2/include/Block.h
+	<memory>
+	"Drawing.h"
+
+1387505961 /usr/include/gdkmm-3.0/gdkmm/general.h
+	<gdkmm/pixbuf.h>
+	<gdkmm/color.h>
+	<gdkmm/rectangle.h>
+	<gdkmm/rgba.h>
+	<cairomm/context.h>
+	<cairomm/region.h>
+
+1387505962 /usr/include/gtkmm-3.0/gtkmm/window.h
+	<glibmm/ustring.h>
+	<sigc++/sigc++.h>
+	<vector>
+	<glibmm/object.h>
+	<gtkmm/bin.h>
+	<gtkmm/application.h>
+
+1387505962 /usr/include/gtkmm-3.0/gtkmm/bin.h
+	<glibmm/ustring.h>
+	<sigc++/sigc++.h>
+	<gtkmm/container.h>
+
+1387505962 /usr/include/gtkmm-3.0/gtkmm/container.h
+	<glibmm/ustring.h>
+	<sigc++/sigc++.h>
+	<vector>
+	<gtkmm/widget.h>
+
+1387505962 /usr/include/gtkmm-3.0/gtkmm/application.h
+	<gtkmmconfig.h>
+	<glibmm/ustring.h>
+	<sigc++/sigc++.h>
+	<vector>
+	<gtkmm/actiongroup.h>
+	<giomm/application.h>
+	<giomm/menumodel.h>
+
+1387505962 /usr/include/gtkmm-3.0/gtkmm/actiongroup.h
+	<glibmm/ustring.h>
+	<sigc++/sigc++.h>
+	<vector>
+	<gtkmm/widget.h>
+	<gtkmm/action.h>
+	<gtkmm/accelkey.h>
+	<gtkmm/accelgroup.h>
+
+1387505962 /usr/include/gtkmm-3.0/gtkmm/action.h
+	<gtkmmconfig.h>
+	<glibmm/ustring.h>
+	<sigc++/sigc++.h>
+	<vector>
+	<gtkmm/widget.h>
+	<gtkmm/accelgroup.h>
+	<giomm/icon.h>
+
+1387505962 /usr/include/gtkmm-3.0/gtkmm/accelgroup.h
+	<glibmm/ustring.h>
+	<sigc++/sigc++.h>
+	<gdkmm/types.h>
+	<glibmm/object.h>
+
+1387505962 /usr/include/gtkmm-3.0/gtkmm/accelkey.h
+	<gdk/gdkkeysyms.h>
+	<gdkmm/types.h>
+
+1396956650 /usr/include/giomm-2.4/giomm/application.h
+	<glibmm/ustring.h>
+	<sigc++/sigc++.h>
+	<giomm/actiongroup.h>
+	<giomm/actionmap.h>
+	<giomm/applicationcommandline.h>
+	<giomm/file.h>
+	<glibmm/object.h>
+	<glibmm/optiongroup.h>
+	<glibmm/variant.h>
+	<glibmm/variantdict.h>
+	<giomm/dbusconnection.h>
+	<giomm/notification.h>
+
+1396956650 /usr/include/giomm-2.4/giomm/actionmap.h
+	<glibmm/ustring.h>
+	<sigc++/sigc++.h>
+	<glibmm/interface.h>
+	<giomm/simpleaction.h>
+
+1396956650 /usr/include/giomm-2.4/giomm/simpleaction.h
+	<glibmm/ustring.h>
+	<sigc++/sigc++.h>
+	<glibmm/object.h>
+	<giomm/action.h>
+
+1396956650 /usr/include/giomm-2.4/giomm/action.h
+	<glibmm/ustring.h>
+	<sigc++/sigc++.h>
+	<glibmm/interface.h>
+	<glibmm/varianttype.h>
+	<gio/gio.h>
+
+1396956650 /usr/include/giomm-2.4/giomm/applicationcommandline.h
+	<glibmm/ustring.h>
+	<sigc++/sigc++.h>
+	<giomm/file.h>
+	<giomm/inputstream.h>
+	<glibmm/object.h>
+	<glibmm/variant.h>
+	<glibmm/variantdict.h>
+
+1396956650 /usr/include/giomm-2.4/giomm/file.h
+	<glibmm/ustring.h>
+	<sigc++/sigc++.h>
+	<glibmm/error.h>
+	<glibmm/interface.h>
+	<giomm/appinfo.h>
+	<giomm/asyncresult.h>
+	<giomm/fileattributeinfolist.h>
+	<giomm/fileenumerator.h>
+	<giomm/fileinfo.h>
+	<giomm/fileinputstream.h>
+	<giomm/fileiostream.h>
+	<giomm/filemonitor.h>
+	<giomm/fileoutputstream.h>
+	<giomm/mountoperation.h>
+	<giomm/drive.h>
+	<giomm/error.h>
+
+1396956650 /usr/include/giomm-2.4/giomm/fileattributeinfolist.h
+	<glibmm/ustring.h>
+	<sigc++/sigc++.h>
+	<giomm/fileattributeinfo.h>
+
+1396956650 /usr/include/giomm-2.4/giomm/fileattributeinfo.h
+	<glibmm/ustring.h>
+	<sigc++/sigc++.h>
+	<string>
+	<gio/gio.h>
+	<glibmm/object.h>
+
+1396956650 /usr/include/giomm-2.4/giomm/fileenumerator.h
+	<glibmm/ustring.h>
+	<sigc++/sigc++.h>
+	<glibmm/object.h>
+	<glibmm/arrayhandle.h>
+	<glibmm/listhandle.h>
+	<glibmm/priorities.h>
+	<giomm/asyncresult.h>
+	<giomm/cancellable.h>
+	<giomm/fileinfo.h>
+
+1396956650 /usr/include/giomm-2.4/giomm/fileinfo.h
+	<glibmm/ustring.h>
+	<sigc++/sigc++.h>
+	<glibmm/arrayhandle.h>
+	<glibmm/datetime.h>
+	<glibmm/object.h>
+	<glibmm/timeval.h>
+	<giomm/fileattributeinfolist.h>
+	<giomm/icon.h>
+
+1396956649 /usr/include/glibmm-2.4/glibmm/datetime.h
+	<glibmmconfig.h>
+	<glibmm/refptr.h>
+	<glibmm/ustring.h>
+	<glib.h>
+
+1396956649 /usr/include/glibmm-2.4/glibmm/timeval.h
+	<glib.h>
+	<glibmm/ustring.h>
+
+1396956650 /usr/include/giomm-2.4/giomm/fileinputstream.h
+	<glibmm/ustring.h>
+	<sigc++/sigc++.h>
+	<giomm/fileinfo.h>
+	<giomm/inputstream.h>
+	<giomm/seekable.h>
+	<glibmm/iochannel.h>
+	<glibmm/object.h>
+
+1396956650 /usr/include/giomm-2.4/giomm/seekable.h
+	<glibmm/ustring.h>
+	<sigc++/sigc++.h>
+	<giomm/cancellable.h>
+	<glibmm/interface.h>
+	<glibmm/iochannel.h>
+
+1396956649 /usr/include/glibmm-2.4/glibmm/iochannel.h
+	<glibmmconfig.h>
+	<glib.h>
+	<glibmm/error.h>
+	<glibmm/refptr.h>
+	<glibmm/ustring.h>
+	<sigc++/sigc++.h>
+	<string>
+
+1396956650 /usr/include/giomm-2.4/giomm/fileiostream.h
+	<glibmm/ustring.h>
+	<sigc++/sigc++.h>
+	<giomm/fileinfo.h>
+	<giomm/iostream.h>
+	<giomm/seekable.h>
+
+1396956650 /usr/include/giomm-2.4/giomm/iostream.h
+	<glibmm/ustring.h>
+	<sigc++/sigc++.h>
+	<glibmm/object.h>
+	<giomm/inputstream.h>
+	<giomm/outputstream.h>
+	<giomm/asyncresult.h>
+	<giomm/cancellable.h>
+
+1396956650 /usr/include/giomm-2.4/giomm/outputstream.h
+	<glibmm/ustring.h>
+	<sigc++/sigc++.h>
+	<glibmm/object.h>
+	<giomm/asyncresult.h>
+	<giomm/cancellable.h>
+	<giomm/inputstream.h>
+
+1396956650 /usr/include/giomm-2.4/giomm/filemonitor.h
+	<glibmm/ustring.h>
+	<sigc++/sigc++.h>
+	<glibmm/object.h>
+
+1396956650 /usr/include/giomm-2.4/giomm/fileoutputstream.h
+	<glibmm/ustring.h>
+	<sigc++/sigc++.h>
+	<giomm/outputstream.h>
+	<giomm/seekable.h>
+	<giomm/fileinfo.h>
+	<glibmm/object.h>
+	<glibmm/iochannel.h>
+
+1396956650 /usr/include/giomm-2.4/giomm/mountoperation.h
+	<glibmm/ustring.h>
+	<sigc++/sigc++.h>
+	<glibmm/object.h>
+	<glibmm/arrayhandle.h>
+
+1396956650 /usr/include/giomm-2.4/giomm/drive.h
+	<glibmm/ustring.h>
+	<sigc++/sigc++.h>
+	<glibmm/listhandle.h>
+	<giomm/mount.h>
+	<giomm/icon.h>
+
+1396956650 /usr/include/giomm-2.4/giomm/mount.h
+	<glibmm/ustring.h>
+	<sigc++/sigc++.h>
+	<glibmm/interface.h>
+	<giomm/asyncresult.h>
+	<giomm/cancellable.h>
+	<giomm/mountoperation.h>
+	<giomm/icon.h>
+
+1396956650 /usr/include/giomm-2.4/giomm/error.h
+	<glibmm/ustring.h>
+	<sigc++/sigc++.h>
+	<glibmm/error.h>
+	<glibmm/interface.h>
+
+1396956649 /usr/include/glibmm-2.4/glibmm/variantdict.h
+	<glibmm/variant.h>
+
+1396956649 /usr/include/glibmm-2.4/glibmm/optiongroup.h
+	<glibmm/ustring.h>
+	<sigc++/slot.h>
+	<map>
+	<vector>
+	<glib.h>
+
+1396956650 /usr/include/giomm-2.4/giomm/dbusconnection.h
+	<glibmm/ustring.h>
+	<sigc++/sigc++.h>
+	<glibmm/object.h>
+	<giomm/initable.h>
+	<giomm/asyncinitable.h>
+	<giomm/dbusauthobserver.h>
+	<giomm/dbusmethodinvocation.h>
+	<giomm/dbusintrospection.h>
+	<giomm/iostream.h>
+	<giomm/asyncresult.h>
+	<giomm/credentials.h>
+	<giomm/dbusmessage.h>
+	<giomm/dbussubtreevtable.h>
+	<gio/gio.h>
+
+1396956650 /usr/include/giomm-2.4/giomm/initable.h
+	<glibmm/ustring.h>
+	<sigc++/sigc++.h>
+	<glibmm/interface.h>
+	<giomm/cancellable.h>
+
+1396956650 /usr/include/giomm-2.4/giomm/asyncinitable.h
+	<glibmm/ustring.h>
+	<sigc++/sigc++.h>
+	<glibmm/interface.h>
+	<glibmm/priorities.h>
+	<giomm/asyncresult.h>
+
+1396956650 /usr/include/giomm-2.4/giomm/dbusauthobserver.h
+	<glibmm/ustring.h>
+	<sigc++/sigc++.h>
+	<glibmm/object.h>
+	<giomm/credentials.h>
+	<giomm/iostream.h>
+
+1396956650 /usr/include/giomm-2.4/giomm/credentials.h
+	<glibmm/ustring.h>
+	<sigc++/sigc++.h>
+	<glibmm/object.h>
+
+1396956650 /usr/include/giomm-2.4/giomm/dbusmethodinvocation.h
+	<glibmm/ustring.h>
+	<sigc++/sigc++.h>
+	<giomm/dbusmessage.h>
+	<giomm/dbusintrospection.h>
+	<glibmm/object.h>
+	<glibmm/variant.h>
+
+1396956650 /usr/include/giomm-2.4/giomm/dbusmessage.h
+	<glibmm/ustring.h>
+	<sigc++/sigc++.h>
+	<glibmm/object.h>
+	<glibmm/variant.h>
+	<glibmm/utility.h>
+	<giomm/unixfdlist.h>
+
+1396956650 /usr/include/giomm-2.4/giomm/unixfdlist.h
+	<glibmm/ustring.h>
+	<sigc++/sigc++.h>
+	<glibmm/object.h>
+	<glibmm/arrayhandle.h>
+
+1396956650 /usr/include/giomm-2.4/giomm/dbusintrospection.h
+	<glibmm/ustring.h>
+	<sigc++/sigc++.h>
+	<gio/gio.h>
+	<glibmm/arrayhandle.h>
+
+1396956650 /usr/include/giomm-2.4/giomm/dbussubtreevtable.h
+	<glibmm/ustring.h>
+	<sigc++/sigc++.h>
+	<giomm/dbusmethodinvocation.h>
+	<giomm/dbusinterfacevtable.h>
+	<gio/gio.h>
+
+1396956650 /usr/include/giomm-2.4/giomm/dbusinterfacevtable.h
+	<glibmm/ustring.h>
+	<sigc++/sigc++.h>
+	<giomm/dbusmethodinvocation.h>
+	<gio/gio.h>
+
+1396956650 /usr/include/giomm-2.4/giomm/notification.h
+	<glibmm/ustring.h>
+	<sigc++/sigc++.h>
+	<glibmm/object.h>
+	<glibmm/ustring.h>
+	<glibmm/variant.h>
+
+1396956650 /usr/include/giomm-2.4/giomm/menumodel.h
+	<glibmm/ustring.h>
+	<sigc++/sigc++.h>
+	<glibmm/object.h>
+
+1396956649 /usr/include/glibmm-2.4/glibmm/fileutils.h
+	<glibmm/error.h>
+	<iterator>
+	<string>
+
+1396956649 /usr/include/glibmm-2.4/glibmm/markup.h
+	<glibmm/error.h>
+	<sigc++/sigc++.h>
+	<map>
+
+1453891447 /home/danielbecker/Programming/C++/Projects/Tetris0.2/include/BasicBoard.h
+	<vector>
+	"Board.h"
+
+1454084569 /home/danielbecker/Programming/C++/Projects/Tetris0.2/include/DefaultGame.h
+	<memory>
+	<vector>
+	"Game.h"
+	"GameBoard.h"
+	"Shape.h"
+
+1454424208 /home/danielbecker/Programming/C++/Projects/Tetris0.2/include/Shape.h
+	<memory>
+	<vector>
+	"Coords.h"
+	"Drawing.h"
+
+1453891447 /home/danielbecker/Programming/C++/Projects/Tetris0.2/include/DefaultGameBoard.h
+	"GameBoard.h"
+
+1453891447 /home/danielbecker/Programming/C++/Projects/Tetris0.2/include/TetrominoO.h
+	"BasicShape.h"
+
+1453891447 /home/danielbecker/Programming/C++/Projects/Tetris0.2/include/BasicShape.h
+	"Shape.h"
+
+1453891447 /home/danielbecker/Programming/C++/Projects/Tetris0.2/include/TetrominoT.h
+	"BasicShape.h"
+
+1454446861 /home/danielbecker/Programming/C++/Projects/Tetris0.2/include/Drawing.h
+	<memory>
+
+1454339812 source:/home/danielbecker/Programming/C++/Projects/TetrisGUI/src/BlockDrawingTool.cpp
+	"BlockDrawingTool.h"
+	<gdkmm/general.h>
+	"DrawingContextInfo.h"
+
+1454339630 /home/danielbecker/Programming/C++/Projects/TetrisGUI/include/BlockDrawingTool.h
+	<gdkmm/rgba.h>
+	<Drawing.h>
+
+1454448686 source:/home/danielbecker/Programming/C++/Projects/TetrisGUI/src/ShapeDrawingTool.cpp
+	"ShapeDrawingTool.h"
+	<cairomm/context.h>
+	<Block.h>
+	"DrawingContextInfo.h"
+	<iostream>
+	<typeinfo>
+
+1454425551 /home/danielbecker/Programming/C++/Projects/TetrisGUI/include/ShapeDrawingTool.h
+	<Drawing.h>
+	<Shape.h>
+
+1454425769 source:/home/danielbecker/Programming/C++/Projects/TetrisGUI/src/BoardDrawingTool.cpp
+	"BoardDrawingTool.h"
+	<gdkmm/general.h>
+	"DrawingContextInfo.h"
+
+1454425103 /home/danielbecker/Programming/C++/Projects/TetrisGUI/include/BoardDrawingTool.h
+	<gdkmm/rgba.h>
+	<Board.h>
+	<Drawing.h>
+
+1454436932 source:/home/danielbecker/Programming/C++/Projects/TetrisGUI/src/GameBoardDrawingTool.cpp
+	"GameBoardDrawingTool.h"
+	<Shape.h>
+	"DrawingContextInfo.h"
+	<iostream>
+
+1454425552 /home/danielbecker/Programming/C++/Projects/TetrisGUI/include/GameBoardDrawingTool.h
+	<Board.h>
+	<Drawing.h>
+	<GameBoard.h>
+
+1454436253 source:/home/danielbecker/Programming/C++/Projects/TetrisGUI/src/GameDrawingTool.cpp
+	"GameDrawingTool.h"
+	"DrawingContextInfo.h"
+	<iostream>
+
+1454425552 /home/danielbecker/Programming/C++/Projects/TetrisGUI/include/GameDrawingTool.h
+	<Drawing.h>
+	<Game.h>
+
+1387505962 /usr/include/gtkmm-3.0/gtkmm/aspectframe.h
+	<glibmm/ustring.h>
+	<sigc++/sigc++.h>
+	<gtkmm/frame.h>
+
+1387505962 /usr/include/gtkmm-3.0/gtkmm/frame.h
+	<glibmm/ustring.h>
+	<sigc++/sigc++.h>
+	<gtkmm/bin.h>
 
