@@ -22,6 +22,7 @@
 #include <gtkmm/builder.h>
 #include <gtkmm/drawingarea.h>
 #include <glibmm/fileutils.h>
+#include <glibmm/main.h>
 #include <glibmm/markup.h>
 
 #include "BasicBlock.h"
@@ -52,9 +53,9 @@ shared_ptr<Game> createGame(int height, int width) {
   }
 
   shared_ptr<TetrominoO> tO = make_shared<TetrominoO>(block);
-  tO->setDrawingTool(make_shared<ShapeDrawingTool>(*tO));
+  tO->setDrawingTool(make_shared<ShapeDrawingTool>());
   shared_ptr<TetrominoT> tT = make_shared<TetrominoT>(block);
-  tT->setDrawingTool(make_shared<ShapeDrawingTool>(*tT));
+  tT->setDrawingTool(make_shared<ShapeDrawingTool>());
   vector<shared_ptr<Shape>> shapes {tO, tT};
 
   if (shapes[0]->getBlocks()[0]->getDrawingTool() == nullptr) {
@@ -62,36 +63,40 @@ shared_ptr<Game> createGame(int height, int width) {
   }
 
   shared_ptr<Board> board = make_shared<BasicBoard>(height, width);
-  board->setDrawingTool(make_shared<BoardDrawingTool>(*board, Gdk::RGBA("gray")));
+  board->setDrawingTool(make_shared<BoardDrawingTool>(Gdk::RGBA("gray")));
 
   shared_ptr<GameBoard> game_board = make_shared<DefaultGameBoard>(board);
-  game_board->setDrawingTool(make_shared<GameBoardDrawingTool>(*game_board));
+  game_board->setDrawingTool(make_shared<GameBoardDrawingTool>());
 
   shared_ptr<Game> game = make_shared<DefaultGame>(game_board, shapes);
-  game->setDrawingTool(make_shared<GameDrawingTool>(*game));
+  game->setDrawingTool(make_shared<GameDrawingTool>());
 
   game->newGame();
   game->drop();
-  game->advance();
+  //game->advance();
 
   return game;
 }
 
-void check() {
-  shared_ptr<Block> block = make_shared<BasicBlock>();
-  block->setDrawingTool(make_shared<BlockDrawingTool>(Gdk::RGBA("yellow"), Gdk::RGBA("blue"), 0.2));
+bool advance_game(shared_ptr<Game> game) {
+  game->advance();
+  cerr << "Timeout.\n";
+  return true;
+}
 
-  shared_ptr<TetrominoO> tO = make_shared<TetrominoO>(block);
-  tO->setDrawingTool(make_shared<ShapeDrawingTool>(*tO));
-
-  if (tO->getDrawingTool() == nullptr) {
-    cerr << "Null in check original.\n";
+bool invalidate(TetrisCanvas& tc) {
+  // force our program to redraw the entire clock.
+  auto win = tc.get_window();
+  if (win)
+  {
+      Gdk::Rectangle r(0, 0, tc.get_allocation().get_width(),
+              tc.get_allocation().get_height());
+      win->invalidate_rect(r, false);
   }
 
-  shared_ptr<Shape> tOc = tO->clone();
-  if (tOc->getDrawingTool() == nullptr) {
-    cerr << "Null in check clone.\n";
-  }
+  cerr << "Invalidating.\n";
+
+  return true;
 }
 
 int main(int argc, char* argv[])
@@ -131,18 +136,12 @@ int main(int argc, char* argv[])
   double width = 10;
   aspect_frame->property_ratio().set_value(width/height);
 
-  check();
-
   shared_ptr<Game> game = createGame(height, width);
 
   tc->setGame(game);
 
-  //shared_ptr<DrawingTool> dt = game->getGameBoard()->getCurrentShape()->getDrawingTool();
-  //cerr << "Dt == nullptr: " << (dt == nullptr) << ".\n";
-
-//  Gdk::Rectangle r(0, 0, tc->get_allocation().get_width(),
-//          tc->get_allocation().get_height());
-//  window->invalidate_rect(r, false);
+  Glib::signal_timeout().connect(sigc::bind<shared_ptr<Game>>(sigc::ptr_fun(&advance_game), game), 1000);
+  Glib::signal_timeout().connect(sigc::bind<TetrisCanvas&>(sigc::ptr_fun(&invalidate), *tc), 1000);
 
   if (window) {
     return app->run(*window);

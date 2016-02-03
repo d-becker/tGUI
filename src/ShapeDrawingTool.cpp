@@ -1,3 +1,19 @@
+/*
+ * Copyright (C) 2016 Daniel Becker <beckerdaniel.dani@gmail.com>
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License version 3 as published
+ * by the Free Software Foundation.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
 #include "ShapeDrawingTool.h"
 
 #include <cairomm/context.h>
@@ -6,13 +22,10 @@
 
 #include "DrawingContextInfo.h"
 
-#include <iostream> //////////////////////////////////////////////////////////////////////////////////
-#include <typeinfo> //////////////////////////////////////////////////////////////////////////////////
-
 namespace tetrisgui {
 
-ShapeDrawingTool::ShapeDrawingTool(const tetris::Shape& shape)
-  : m_shape(shape)
+ShapeDrawingTool::ShapeDrawingTool()
+  : tetris::DrawingTool<tetris::Shape>()
 {
   //ctor
 }
@@ -22,34 +35,41 @@ ShapeDrawingTool::~ShapeDrawingTool()
   //dtor
 }
 
-void ShapeDrawingTool::draw(tetris::DrawingContextInfo& dci) {
+ShapeDrawingTool::ShapeDrawingTool(const ShapeDrawingTool& other
+                                   __attribute__((unused)))
+  : tetris::DrawingTool<tetris::Shape>()
+{
+  // Copy constructor.
+}
+
+ShapeDrawingTool::ShapeDrawingTool(ShapeDrawingTool&& other
+                                   __attribute__((unused)))
+  : tetris::DrawingTool<tetris::Shape>()
+{
+  // Move constructor.
+}
+
+void ShapeDrawingTool::draw(const tetris::Shape& shape,
+                            tetris::DrawingContextInfo& dci) {
   const Cairo::RefPtr<Cairo::Context>& cr = dci.cr;
-  std::vector<tetris::Coords> block_positions = m_shape.getBlockPositions();
+  std::vector<tetris::Coords> block_positions = shape.getBlockPositions();
 
   for (const tetris::Coords& c : block_positions) {
-    std::shared_ptr<tetris::Block> block = m_shape.get(c);
+    std::shared_ptr<tetris::Block> block = shape.get(c);
     if (block != nullptr) {
       cr->save();
 
-      cairo_matrix_t matrix;
-      cr->get_matrix(matrix);
-      std::cerr << "Shape drawing: \nxx = " << matrix.xx << ", xy = " << matrix.xy << ", x0 = " << matrix.x0
-                << ", \nyx = " << matrix.yx << ", yy = " << matrix.yy << ", y0 = " << matrix.y0 << ".\n\n";
-
       cr->translate(c.getHorizontal(), c.getVertical());
       block->draw(dci);
+
       cr->restore();
     }
   }
 }
 
-std::shared_ptr<tetris::DrawingTool> ShapeDrawingTool::copy(
-                              const tetris::Drawable& parent) const {
-  // Assuming 'parent' is a 'Shape', as the contract states.
-  // Otherwise, it's undefined behaviour. We could also use a dynamic cast.
-  std::cerr << "Typeid: " << typeid(parent).name() << ".\n";
-  const tetris::Shape& parent_shape = dynamic_cast<const tetris::Shape&>(parent);///////////////////////////////
-  return std::make_shared<ShapeDrawingTool>(parent_shape);
+std::shared_ptr<tetris::DrawingTool<tetris::Shape>>
+ShapeDrawingTool::copy() const {
+  return std::make_shared<ShapeDrawingTool>(*this);
 }
 
 } // namespace tetrisgui.

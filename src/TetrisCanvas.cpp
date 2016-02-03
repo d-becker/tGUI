@@ -23,9 +23,7 @@
 
 
 #include "DrawingContextInfo.h"
-#include "BlockDrawingTool.h" ///////////////////////////////////////////////////////////////////////
 #include <cairomm/matrix.h>
-#include <iostream>
 
 namespace tetrisgui {
 
@@ -63,29 +61,11 @@ bool TetrisCanvas::on_draw(const Cairo::RefPtr<Cairo::Context>& cr) {
   // Determining scaling (we assume that we are in an AspectFrame).
   double scale = static_cast<double>(get_allocation().get_width()) /
             static_cast<double>(m_game->getGameBoard()->getBoard()->getWidth());
-  cairo_matrix_t matrix;
-  cr->get_matrix(matrix);
-  std::cerr << "TetrisCanvas0: \nxx = " << matrix.xx << ", xy = " << matrix.xy << ", x0 = " << matrix.x0
-            << ", \nyx = " << matrix.yx << ", yy = " << matrix.yy << ", y0 = " << matrix.y0 << ".\n\n";
-
 
   cr->scale(scale, scale);
 
-  cr->get_matrix(matrix);
-  std::cerr << "TetrisCanvas1: \nxx = " << matrix.xx << ", xy = " << matrix.xy << ", x0 = " << matrix.x0
-            << ", \nyx = " << matrix.yx << ", yy = " << matrix.yy << ", y0 = " << matrix.y0 << ".\n\n";
-
   tetris::DrawingContextInfo dci(cr);
   m_game->draw(dci);
-
-  dci.cr->get_matrix(matrix);
-  std::cerr << "TetrisCanvas2: \nxx = " << matrix.xx << ", xy = " << matrix.xy << ", x0 = " << matrix.x0
-            << ", \nyx = " << matrix.yx << ", yy = " << matrix.yy << ", y0 = " << matrix.y0 << ".\n\n";
-
-
-  //auto b = BlockDrawingTool(Gdk::RGBA("yellow"), Gdk::RGBA("blue"), 0.2);
-  //cr->scale(scale, scale);
-  //b.draw(dci);
 
   return true;
 }

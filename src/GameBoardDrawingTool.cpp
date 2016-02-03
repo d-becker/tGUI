@@ -1,15 +1,29 @@
+/*
+ * Copyright (C) 2016 Daniel Becker <beckerdaniel.dani@gmail.com>
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License version 3 as published
+ * by the Free Software Foundation.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
 #include "GameBoardDrawingTool.h"
 
 #include <Shape.h>
 
 #include "DrawingContextInfo.h"
 
-#include <iostream>////////////////////////////////////////////////////////////////////////////////
-
 namespace tetrisgui {
 
-GameBoardDrawingTool::GameBoardDrawingTool(const tetris::GameBoard& game_board)
-  : m_game_board(game_board)
+GameBoardDrawingTool::GameBoardDrawingTool()
+  : tetris::DrawingTool<tetris::GameBoard>()
 {
   //ctor
 }
@@ -19,58 +33,43 @@ GameBoardDrawingTool::~GameBoardDrawingTool()
   //dtor
 }
 
-void GameBoardDrawingTool::draw(tetris::DrawingContextInfo& dci) {
-  const Cairo::RefPtr<Cairo::Context>& cr = dci.cr;
-  //
-  cairo_matrix_t matrix;
-  cr->get_matrix(matrix);
-  std::cerr << "GameBoard0: \nxx = " << matrix.xx << ", xy = " << matrix.xy << ", x0 = " << matrix.x0
-            << ", \nyx = " << matrix.yx << ", yy = " << matrix.yy << ", y0 = " << matrix.y0 << ".\n\n";
-  //
-  cr->save();
-  m_game_board.getBoard()->draw(dci);
+GameBoardDrawingTool::GameBoardDrawingTool(const GameBoardDrawingTool& other)
+  : tetris::DrawingTool<tetris::GameBoard>(other)
+{
+  // Copy constructor.
+}
 
-  cr->get_matrix(matrix);
-  std::cerr << "GameBoard1 (after drawing board): \nxx = " << matrix.xx << ", xy = " << matrix.xy << ", x0 = " << matrix.x0
-            << ", \nyx = " << matrix.yx << ", yy = " << matrix.yy << ", y0 = " << matrix.y0 << ".\n\n";
+GameBoardDrawingTool::GameBoardDrawingTool(GameBoardDrawingTool&& other)
+  : tetris::DrawingTool<tetris::GameBoard>(other)
+{
+  // Move constructor.
+}
+
+void GameBoardDrawingTool::draw(const tetris::GameBoard& game_board,
+                                tetris::DrawingContextInfo& dci) {
+  const Cairo::RefPtr<Cairo::Context>& cr = dci.cr;
+
+  cr->save();
+  game_board.getBoard()->draw(dci);
 
   cr->restore();
   cr->save();
 
-  cr->get_matrix(matrix);
-  std::cerr << "GameBoard2 (after restoring): \nxx = " << matrix.xx << ", xy = " << matrix.xy << ", x0 = " << matrix.x0
-            << ", \nyx = " << matrix.yx << ", yy = " << matrix.yy << ", y0 = " << matrix.y0 << ".\n\n";
-
-  tetris::Coords c = m_game_board.getCurrentShapePosition();
+  tetris::Coords c = game_board.getCurrentShapePosition();
   cr->translate(c.getHorizontal(), c.getVertical());
 
-  cr->get_matrix(matrix);
-  std::cerr << "GameBoard3 (translation): \nxx = " << matrix.xx << ", xy = " << matrix.xy << ", x0 = " << matrix.x0
-            << ", \nyx = " << matrix.yx << ", yy = " << matrix.yy << ", y0 = " << matrix.y0 << ".\n\n";
-
   const std::shared_ptr<const tetris::Shape>& current_shape
-                                    = m_game_board.getCurrentShape();
+                                    = game_board.getCurrentShape();
   if (current_shape != nullptr) {
     current_shape->draw(dci);
   }
-  cr->get_matrix(matrix);
-  std::cerr << "GameBoard4 (after drawing shape): \nxx = " << matrix.xx << ", xy = " << matrix.xy << ", x0 = " << matrix.x0
-            << ", \nyx = " << matrix.yx << ", yy = " << matrix.yy << ", y0 = " << matrix.y0 << ".\n\n";
 
   cr->restore();
-
-  dci.cr->get_matrix(matrix);
-  std::cerr << "GameBoard5 (before returning): \nxx = " << matrix.xx << ", xy = " << matrix.xy << "x0 = " << matrix.x0
-            << ", \nyx = " << matrix.yx << ", yy = " << matrix.yy << "y0 = " << matrix.y0 << ".\n\n";
 }
 
-std::shared_ptr<tetris::DrawingTool> GameBoardDrawingTool::copy(
-                              const tetris::Drawable& parent) const {
-  // Assuming 'parent' is a 'GameBoard', as the contract states.
-  // Otherwise, it's undefined behaviour. We could also use a dynamic cast.
-  const tetris::GameBoard& parent_game_board
-                              = static_cast<const tetris::GameBoard&>(parent);
-  return std::make_shared<GameBoardDrawingTool>(parent_game_board);
+std::shared_ptr<tetris::DrawingTool<tetris::GameBoard>>
+GameBoardDrawingTool::copy() const {
+  return std::make_shared<GameBoardDrawingTool>(*this);
 }
 
 } // namespace tetrisgui.
