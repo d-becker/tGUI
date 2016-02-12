@@ -20,7 +20,7 @@
 #include <gtkmm/builder.h>
 #include <gtkmm/drawingarea.h>
 
-#include <Game.h>
+#include <GameFlow.h>
 
 #include <memory>
 
@@ -38,28 +38,30 @@ class TetrisCanvas : public Gtk::DrawingArea
     virtual ~TetrisCanvas();
 
     /**
-     * Returns a (smart) pointer to the \c tetris::Game object that is
+     * Returns a (smart) pointer to the \c tetris::GameFlow object that is
      * associated with this \c TetrisCanvas.
      *
-     * \return A (smart) pointer to the \c tetris::Game object that is
+     * \return A (smart) pointer to the \c tetris::GameFlow object that is
      *         associated with this \c TetrisCanvas.
      */
-    std::shared_ptr<tetris::Game> getGame() const;
+    std::shared_ptr<tetris::GameFlow> getGameFlow() const;
 
     /**
-     * Sets the \c tetris::Game object that is associated with this
+     * Sets the \c tetris::GameFlow object that is associated with this
      * \c TetrisCanvas to the one pointed to by \a game.
      *
-     * \param game A (smart) pointer that points to the \c tetris::Game object
-     *        that will be associated with this \c TetrisCanvas. If it is a
-     *        null pointer, an instance of \c std::invalid_argument is thrown.
+     * \param game A (smart) pointer that points to the \c tetris::GameFlow
+     *        object that will be associated with this \c TetrisCanvas.
+     *        If it is a null pointer, an instance of
+     *        \c std::invalid_argument is thrown.
      */
-    void setGame(std::shared_ptr<tetris::Game> game);
+    void setGameFlow(std::shared_ptr<tetris::GameFlow> game_flow);
 
     bool on_draw(const Cairo::RefPtr<Cairo::Context>& cr) override;
-  protected:
   private:
-    std::shared_ptr<tetris::Game> m_game;
+    bool signal_handler(GdkEventKey* event);
+  private:
+    std::shared_ptr<tetris::GameFlow> m_game_flow;
 };
 
 } // namespace tetrisgui.

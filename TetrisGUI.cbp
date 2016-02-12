@@ -51,6 +51,7 @@
 		<Unit filename="include/DrawingContextInfo.h" />
 		<Unit filename="include/GameBoardDrawingTool.h" />
 		<Unit filename="include/GameDrawingTool.h" />
+		<Unit filename="include/GtkGameFlow.h" />
 		<Unit filename="include/ShapeDrawingTool.h" />
 		<Unit filename="include/TetrisCanvas.h" />
 		<Unit filename="main.cpp" />
@@ -59,6 +60,7 @@
 		<Unit filename="src/DrawingContextInfo.cpp" />
 		<Unit filename="src/GameBoardDrawingTool.cpp" />
 		<Unit filename="src/GameDrawingTool.cpp" />
+		<Unit filename="src/GtkGameFlow.cpp" />
 		<Unit filename="src/ShapeDrawingTool.cpp" />
 		<Unit filename="src/TetrisCanvas.cpp" />
 		<Extensions>

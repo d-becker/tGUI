@@ -39,6 +39,7 @@
 #include "BoardDrawingTool.h"
 #include "GameBoardDrawingTool.h"
 #include "GameDrawingTool.h"
+#include "GtkGameFlow.h"
 
 using namespace std;
 using namespace tetrisgui;
@@ -71,8 +72,8 @@ shared_ptr<Game> createGame(int height, int width) {
   shared_ptr<Game> game = make_shared<DefaultGame>(game_board, shapes);
   game->setDrawingTool(make_shared<GameDrawingTool>());
 
-  game->newGame();
-  game->drop();
+//  game->newGame();
+//  game->drop();
   //game->advance();
 
   return game;
@@ -127,23 +128,31 @@ int main(int argc, char* argv[])
 
   Gtk::Window* window;
   Gtk::AspectFrame* aspect_frame;
-  TetrisCanvas* tc;
+  TetrisCanvas* tc_raw;
   refBuilder->get_widget("window1", window);
   refBuilder->get_widget("aspectframe1", aspect_frame);
-  refBuilder->get_widget_derived("TetrisCanvas", tc);
+  refBuilder->get_widget_derived("TetrisCanvas", tc_raw);
+
+  shared_ptr<TetrisCanvas> tc(tc_raw);
 
   double height = 15;
   double width = 10;
   aspect_frame->property_ratio().set_value(width/height);
 
   shared_ptr<Game> game = createGame(height, width);
+  shared_ptr<GtkGameFlow> game_flow = make_shared<GtkGameFlow>(tc, game, 500);
 
-  tc->setGame(game);
+  tc->setGameFlow(game_flow);
 
-  Glib::signal_timeout().connect(sigc::bind<shared_ptr<Game>>(sigc::ptr_fun(&advance_game), game), 1000);
-  Glib::signal_timeout().connect(sigc::bind<TetrisCanvas&>(sigc::ptr_fun(&invalidate), *tc), 1000);
+  cerr << "Before new game started.\n";
+
+  game_flow->newGame();
+
+  cerr << "New game started.\n";
 
   if (window) {
+    bool paused = game_flow->isPaused();
+    cerr << "Displaying window. Paused: " << paused << ".\n";
     return app->run(*window);
   }
 }
