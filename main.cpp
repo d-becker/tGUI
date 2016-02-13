@@ -150,6 +150,8 @@ int main(int argc, char* argv[])
 
   cerr << "New game started.\n";
 
+  //Glib::signal_idle().connect( sigc::mem_fun(*tc, &TetrisCanvas::notify_redraw));
+
   if (window) {
     bool paused = game_flow->isPaused();
     cerr << "Displaying window. Paused: " << paused << ".\n";

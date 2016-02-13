@@ -35,6 +35,7 @@ GtkGameFlow::GtkGameFlow(std::shared_ptr<TetrisCanvas> tetris_canvas,
   bindInput(GDK_KEY_s, "rotate_right");
   bindInput(GDK_KEY_space, "drop");
   bindInput(GDK_KEY_p, "toggle_paused");
+  bindInput(GDK_KEY_r, "resume");///////////////////////////////////////////////////////////
 }
 
 GtkGameFlow::GtkGameFlow(std::shared_ptr<TetrisCanvas> tetris_canvas,
@@ -50,13 +51,10 @@ GtkGameFlow::~GtkGameFlow()
 }
 
 void GtkGameFlow::draw() {
-  auto win = m_tetris_canvas->get_window();
-  if (win)
-  {
-      auto allocation = m_tetris_canvas->get_allocation();
-      Gdk::Rectangle r(0, 0, allocation.get_width(),
-              allocation.get_height());
-      win->invalidate_rect(r, false);
+  if (std::this_thread::get_id() == m_tetris_canvas->getThreadId()) {
+    m_tetris_canvas->queue_draw();
+  } else {
+    m_tetris_canvas->notify();
   }
 }
 

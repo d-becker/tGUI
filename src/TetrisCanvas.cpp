@@ -31,16 +31,23 @@ TetrisCanvas::TetrisCanvas(BaseObjectType* cobject,
                            const Glib::RefPtr<Gtk::Builder>& builder
                               __attribute__((unused))
                           )
-  : Gtk::DrawingArea(cobject)
+  : Gtk::DrawingArea(cobject), m_thread_id(std::this_thread::get_id())
 {
   //ctor
   set_can_focus(true);
   grab_focus();
   add_events(Gdk::KEY_PRESS_MASK | Gdk::KEY_RELEASE_MASK);
+  add_events(Gdk::BUTTON_PRESS_MASK | Gdk::BUTTON_RELEASE_MASK);
 
-  signal_key_press_event().connect(sigc::mem_fun(*this,
-                                                 &TetrisCanvas::signal_handler),
-                                                 false );
+  signal_key_press_event().connect(sigc::mem_fun(
+                                     *this,
+                                     &TetrisCanvas::m_key_signal_handler),
+                                     false );
+  signal_button_press_event().connect(sigc::mem_fun(
+                                    *this,
+                                    &TetrisCanvas::m_mouse_signal_handler));
+
+  m_dispatcher.connect(sigc::mem_fun(*this, &TetrisCanvas::queue_draw));
 }
 
 TetrisCanvas::~TetrisCanvas()
@@ -79,9 +86,23 @@ bool TetrisCanvas::on_draw(const Cairo::RefPtr<Cairo::Context>& cr) {
   return true;
 }
 
+void TetrisCanvas::notify() {
+  m_dispatcher.emit();
+}
+
+std::thread::id TetrisCanvas::getThreadId() const {
+  return m_thread_id;
+}
+
 // Private methods.
-bool TetrisCanvas::signal_handler(GdkEventKey* event) {
+bool TetrisCanvas::m_key_signal_handler(GdkEventKey* event) {
   m_game_flow->processInput(event->keyval);
+  return true;
+}
+
+bool TetrisCanvas::m_mouse_signal_handler(GdkEventButton* event
+                                          __attribute__((unused))) {
+  grab_focus();
   return true;
 }
 
