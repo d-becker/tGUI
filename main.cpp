@@ -30,8 +30,13 @@
 #include "DefaultGame.h"
 #include "DefaultGameBoard.h"
 #include "Shape.h"
+#include "TetrominoI.h"
+#include "TetrominoJ.h"
+#include "TetrominoL.h"
 #include "TetrominoO.h"
+#include "TetrominoS.h"
 #include "TetrominoT.h"
+#include "TetrominoZ.h"
 
 #include "TetrisCanvas.h"
 #include "BlockDrawingTool.h"
@@ -57,7 +62,17 @@ shared_ptr<Game> createGame(int height, int width) {
   tO->setDrawingTool(make_shared<ShapeDrawingTool>());
   shared_ptr<TetrominoT> tT = make_shared<TetrominoT>(block);
   tT->setDrawingTool(make_shared<ShapeDrawingTool>());
-  vector<shared_ptr<Shape>> shapes {tO, tT};
+  shared_ptr<TetrominoL> tL = make_shared<TetrominoL>(block);
+  tL->setDrawingTool(make_shared<ShapeDrawingTool>());
+  shared_ptr<TetrominoJ> tJ = make_shared<TetrominoJ>(block);
+  tJ->setDrawingTool(make_shared<ShapeDrawingTool>());
+  shared_ptr<TetrominoI> tI = make_shared<TetrominoI>(block);
+  tI->setDrawingTool(make_shared<ShapeDrawingTool>());
+  shared_ptr<TetrominoS> tS = make_shared<TetrominoS>(block);
+  tS->setDrawingTool(make_shared<ShapeDrawingTool>());
+  shared_ptr<TetrominoZ> tZ = make_shared<TetrominoZ>(block);
+  tZ->setDrawingTool(make_shared<ShapeDrawingTool>());
+  vector<shared_ptr<Shape>> shapes {tO, tT, tL, tJ, tI, tS, tZ};
 
   if (shapes[0]->getBlocks()[0]->getDrawingTool() == nullptr) {
     cout << "Null pointer in drawing tool.\n";
