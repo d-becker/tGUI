@@ -33,9 +33,10 @@ GtkGameFlow::GtkGameFlow(std::shared_ptr<TetrisCanvas> tetris_canvas,
   bindInput(GDK_KEY_Right, "move_right");
   bindInput(GDK_KEY_a, "rotate_left");
   bindInput(GDK_KEY_s, "rotate_right");
+  bindInput(GDK_KEY_Up, "rotate_right"); //  Convenience for those that are used to Quadrapessel.
   bindInput(GDK_KEY_space, "drop");
   bindInput(GDK_KEY_p, "toggle_paused");
-  bindInput(GDK_KEY_r, "resume");///////////////////////////////////////////////////////////
+  bindInput(GDK_KEY_r, "resume");
 }
 
 GtkGameFlow::GtkGameFlow(std::shared_ptr<TetrisCanvas> tetris_canvas,

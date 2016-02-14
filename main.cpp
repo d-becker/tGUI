@@ -150,12 +150,12 @@ int main(int argc, char* argv[])
 
   shared_ptr<TetrisCanvas> tc(tc_raw);
 
-  double height = 15;
+  double height = 20;
   double width = 10;
   aspect_frame->property_ratio().set_value(width/height);
 
   shared_ptr<Game> game = createGame(height, width);
-  shared_ptr<GtkGameFlow> game_flow = make_shared<GtkGameFlow>(tc, game, 500);
+  shared_ptr<GtkGameFlow> game_flow = make_shared<GtkGameFlow>(tc, game, 1000);
 
   tc->setGameFlow(game_flow);
 

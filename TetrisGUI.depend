@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1455403363 source:/home/danielbecker/Programming/C++/Projects/TetrisGUI/main.cpp
+1455453424 source:/home/danielbecker/Programming/C++/Projects/TetrisGUI/main.cpp
 	<iostream>
 	<gdkmm/rgba.h>
 	<gdkmm/rectangle.h>
@@ -15,8 +15,13 @@
 	"DefaultGame.h"
 	"DefaultGameBoard.h"
 	"Shape.h"
+	"TetrominoI.h"
+	"TetrominoJ.h"
+	"TetrominoL.h"
 	"TetrominoO.h"
+	"TetrominoS.h"
 	"TetrominoT.h"
+	"TetrominoZ.h"
 	"TetrisCanvas.h"
 	"BlockDrawingTool.h"
 	"ShapeDrawingTool.h"
@@ -4024,7 +4029,7 @@
 1454691441 /home/danielbecker/Programming/C++/Projects/Tetris0.2/include/TetrominoT.h
 	"BasicShape.h"
 
-1454691441 /home/danielbecker/Programming/C++/Projects/Tetris0.2/include/Drawing.h
+1455455082 /home/danielbecker/Programming/C++/Projects/Tetris0.2/include/Drawing.h
 	<memory>
 
 1454464593 source:/home/danielbecker/Programming/C++/Projects/TetrisGUI/src/BlockDrawingTool.cpp
@@ -4118,11 +4123,26 @@
 	<mutex>
 	<thread>
 
-1455404239 source:/home/danielbecker/Programming/C++/Projects/TetrisGUI/src/GtkGameFlow.cpp
+1455476335 source:/home/danielbecker/Programming/C++/Projects/TetrisGUI/src/GtkGameFlow.cpp
 	"GtkGameFlow.h"
 	<gdk/gdkkeysyms.h>
 
 1396956649 /usr/include/glibmm-2.4/glibmm/dispatcher.h
 	<sigc++/sigc++.h>
 	<glibmm/main.h>
+
+1455453326 /home/danielbecker/Programming/C++/Projects/Tetris0.2/include/TetrominoI.h
+	"BasicShape.h"
+
+1455452456 /home/danielbecker/Programming/C++/Projects/Tetris0.2/include/TetrominoJ.h
+	"BasicShape.h"
+
+1455451811 /home/danielbecker/Programming/C++/Projects/Tetris0.2/include/TetrominoL.h
+	"BasicShape.h"
+
+1455452625 /home/danielbecker/Programming/C++/Projects/Tetris0.2/include/TetrominoS.h
+	"BasicShape.h"
+
+1455452772 /home/danielbecker/Programming/C++/Projects/Tetris0.2/include/TetrominoZ.h
+	"BasicShape.h"
 
