@@ -39,6 +39,7 @@
 #include "TetrominoZ.h"
 
 #include "TetrisCanvas.h"
+#include "AdvancedGameBoardDrawingTool.h"
 #include "BlockDrawingTool.h"
 #include "ShapeDrawingTool.h"
 #include "BoardDrawingTool.h"
@@ -82,7 +83,7 @@ shared_ptr<Game> createGame(int height, int width) {
   board->setDrawingTool(make_shared<BoardDrawingTool>(Gdk::RGBA("gray")));
 
   shared_ptr<GameBoard> game_board = make_shared<DefaultGameBoard>(board);
-  game_board->setDrawingTool(make_shared<GameBoardDrawingTool>());
+  game_board->setDrawingTool(make_shared<AdvancedGameBoardDrawingTool>(true));
 
   shared_ptr<Game> game = make_shared<DefaultGame>(game_board, shapes);
   game->setDrawingTool(make_shared<GameDrawingTool>());

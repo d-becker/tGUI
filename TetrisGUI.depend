@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1455453424 source:/home/danielbecker/Programming/C++/Projects/TetrisGUI/main.cpp
+1456010413 source:/home/danielbecker/Programming/C++/Projects/TetrisGUI/main.cpp
 	<iostream>
 	<gdkmm/rgba.h>
 	<gdkmm/rectangle.h>
@@ -23,6 +23,7 @@
 	"TetrominoT.h"
 	"TetrominoZ.h"
 	"TetrisCanvas.h"
+	"AdvancedGameBoardDrawingTool.h"
 	"BlockDrawingTool.h"
 	"ShapeDrawingTool.h"
 	"BoardDrawingTool.h"
@@ -4068,7 +4069,7 @@
 	<Shape.h>
 	"DrawingContextInfo.h"
 
-1454464593 /home/danielbecker/Programming/C++/Projects/TetrisGUI/include/GameBoardDrawingTool.h
+1455572581 /home/danielbecker/Programming/C++/Projects/TetrisGUI/include/GameBoardDrawingTool.h
 	<Board.h>
 	<Drawing.h>
 	<GameBoard.h>
@@ -4101,7 +4102,7 @@
 	<vector>
 	<cstddef>
 
-1455320440 /home/danielbecker/Programming/C++/Projects/Tetris0.2/include/GameFlow.h
+1455480389 /home/danielbecker/Programming/C++/Projects/Tetris0.2/include/GameFlow.h
 	<memory>
 	<string>
 	"Game.h"
@@ -4145,4 +4146,12 @@
 
 1455452772 /home/danielbecker/Programming/C++/Projects/Tetris0.2/include/TetrominoZ.h
 	"BasicShape.h"
+
+1456012082 /home/danielbecker/Programming/C++/Projects/TetrisGUI/include/AdvancedGameBoardDrawingTool.h
+	"GameBoardDrawingTool.h"
+
+1456011514 source:/home/danielbecker/Programming/C++/Projects/TetrisGUI/src/AdvancedGameBoardDrawingTool.cpp
+	"AdvancedGameBoardDrawingTool.h"
+	<Shape.h>
+	"DrawingContextInfo.h"
 

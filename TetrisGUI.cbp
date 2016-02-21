@@ -46,6 +46,7 @@
 		<Linker>
 			<Add option="`pkg-config gtkmm-3.0 --libs`" />
 		</Linker>
+		<Unit filename="include/AdvancedGameBoardDrawingTool.h" />
 		<Unit filename="include/BlockDrawingTool.h" />
 		<Unit filename="include/BoardDrawingTool.h" />
 		<Unit filename="include/DrawingContextInfo.h" />
@@ -55,6 +56,7 @@
 		<Unit filename="include/ShapeDrawingTool.h" />
 		<Unit filename="include/TetrisCanvas.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/AdvancedGameBoardDrawingTool.cpp" />
 		<Unit filename="src/BlockDrawingTool.cpp" />
 		<Unit filename="src/BoardDrawingTool.cpp" />
 		<Unit filename="src/DrawingContextInfo.cpp" />
