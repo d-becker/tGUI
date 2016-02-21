@@ -46,7 +46,8 @@ AdvancedGameBoardDrawingTool::~AdvancedGameBoardDrawingTool()
 AdvancedGameBoardDrawingTool::AdvancedGameBoardDrawingTool(
                                 const AdvancedGameBoardDrawingTool& other)
   : tetrisgui::GameBoardDrawingTool(other),
-    m_show_where_block_falls(other.m_show_where_block_falls)
+    m_show_where_block_falls(other.m_show_where_block_falls),
+    m_alpha_of_falling_place(other.m_alpha_of_falling_place)
 {
   // Copy ctor.
 }
@@ -54,7 +55,8 @@ AdvancedGameBoardDrawingTool::AdvancedGameBoardDrawingTool(
 AdvancedGameBoardDrawingTool::AdvancedGameBoardDrawingTool(
                                 AdvancedGameBoardDrawingTool&& other)
   : tetrisgui::GameBoardDrawingTool(other),
-    m_show_where_block_falls(other.m_show_where_block_falls)
+    m_show_where_block_falls(other.m_show_where_block_falls),
+    m_alpha_of_falling_place(other.m_alpha_of_falling_place)
 {
   // Move ctor.
 }
@@ -84,8 +86,6 @@ void AdvancedGameBoardDrawingTool::draw(const tetris::GameBoard& game_board,
   }
 
   const Cairo::RefPtr<Cairo::Context>& cr = dci.cr;
-
-
 
   const std::shared_ptr<const tetris::Shape>& current_shape
                                     = game_board.getCurrentShape();
