@@ -72,7 +72,7 @@ bool TetrisCanvas::on_draw(const Cairo::RefPtr<Cairo::Context>& cr) {
     throw std::invalid_argument("The current game is null.");
   }
 
-  std::shared_ptr<const tetris::Game> game = m_game_flow->getGame();
+  tetris::locking_shared_ptr<const tetris::Game> game = m_game_flow->getGame();
 
   // Determining scaling (we assume that we are in an AspectFrame).
   double scale = static_cast<double>(get_allocation().get_width()) /

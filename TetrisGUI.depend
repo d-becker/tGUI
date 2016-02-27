@@ -31,7 +31,7 @@
 	"GameDrawingTool.h"
 	"GtkGameFlow.h"
 
-1455405841 source:/home/danielbecker/Programming/C++/Projects/TetrisGUI/src/TetrisCanvas.cpp
+1456609381 source:/home/danielbecker/Programming/C++/Projects/TetrisGUI/src/TetrisCanvas.cpp
 	"TetrisCanvas.h"
 	<functional>
 	<stdexcept>
@@ -4102,19 +4102,21 @@
 	<vector>
 	<cstddef>
 
-1456094451 /home/danielbecker/Programming/C++/Projects/Tetris0.2/include/GameFlow.h
+1456608979 /home/danielbecker/Programming/C++/Projects/Tetris0.2/include/GameFlow.h
 	<memory>
 	<string>
 	"Game.h"
+	"locking_shared_ptr.h"
 
 1455320297 /home/danielbecker/Programming/C++/Projects/TetrisGUI/include/GtkGameFlow.h
 	<BasicGameFlow.h>
 	"TetrisCanvas.h"
 
-1456089542 /home/danielbecker/Programming/C++/Projects/Tetris0.2/include/BasicGameFlow.h
+1456609019 /home/danielbecker/Programming/C++/Projects/Tetris0.2/include/BasicGameFlow.h
 	"GameFlow.h"
 	<mutex>
 	<unordered_map>
+	"locking_shared_ptr.h"
 	"Timeout.h"
 
 1455141051 /home/danielbecker/Programming/C++/Projects/Tetris0.2/include/Timeout.h
@@ -4154,4 +4156,8 @@
 	"AdvancedGameBoardDrawingTool.h"
 	<Shape.h>
 	"DrawingContextInfo.h"
+
+1456609928 /home/danielbecker/Programming/C++/Projects/Tetris0.2/include/locking_shared_ptr.h
+	<memory>
+	<mutex>
 
