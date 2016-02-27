@@ -77,7 +77,7 @@ void BoardDrawingTool::draw(const tetris::Board& board,
 
 std::shared_ptr<tetris::DrawingTool<tetris::Board>>
 BoardDrawingTool::copy() const {
-  return std::make_shared<BoardDrawingTool>(this->m_background_colour);
+  return std::make_shared<BoardDrawingTool>(*this);
 }
 
 } // namespace tetrisgui.
