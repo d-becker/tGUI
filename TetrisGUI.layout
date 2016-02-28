@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
 	<ActiveTarget name="Debug" />
+	<File name="src/BoardDrawingTool.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1415" topLine="45" />
+		</Cursor>
+	</File>
+	<File name="src/BlockDrawingTool.cpp" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1572" topLine="11" />
+		</Cursor>
+	</File>
 	<File name="include/GtkGameFlow.h" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="780" topLine="21" />
@@ -11,9 +21,14 @@
 			<Cursor1 position="1318" topLine="23" />
 		</Cursor>
 	</File>
-	<File name="src/GameBoardDrawingTool.cpp" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="include/AdvancedGameBoardDrawingTool.h" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1840" topLine="40" />
+			<Cursor1 position="422" topLine="6" />
+		</Cursor>
+	</File>
+	<File name="include/ShapeDrawingTool.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1129" topLine="17" />
 		</Cursor>
 	</File>
 	<File name="src/AdvancedGameBoardDrawingTool.cpp" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -26,39 +41,9 @@
 			<Cursor1 position="1443" topLine="46" />
 		</Cursor>
 	</File>
-	<File name="src/GtkGameFlow.cpp" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1847" topLine="39" />
-		</Cursor>
-	</File>
-	<File name="src/BoardDrawingTool.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1415" topLine="45" />
-		</Cursor>
-	</File>
-	<File name="include/GameDrawingTool.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1251" topLine="20" />
-		</Cursor>
-	</File>
-	<File name="include/DrawingContextInfo.h" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="0" topLine="12" />
-		</Cursor>
-	</File>
-	<File name="include/BlockDrawingTool.h" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="801" topLine="23" />
-		</Cursor>
-	</File>
 	<File name="src/GameDrawingTool.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="1401" topLine="39" />
-		</Cursor>
-	</File>
-	<File name="include/ShapeDrawingTool.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1129" topLine="17" />
 		</Cursor>
 	</File>
 	<File name="include/GameBoardDrawingTool.h" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -66,14 +51,14 @@
 			<Cursor1 position="1201" topLine="21" />
 		</Cursor>
 	</File>
-	<File name="src/TetrisCanvas.cpp" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="include/TetrisCanvas.h" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="2338" topLine="68" />
+			<Cursor1 position="2789" topLine="72" />
 		</Cursor>
 	</File>
-	<File name="src/DrawingContextInfo.cpp" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src/TetrisCanvas.cpp" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="198" topLine="9" />
+			<Cursor1 position="2297" topLine="68" />
 		</Cursor>
 	</File>
 	<File name="main.cpp" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -81,19 +66,34 @@
 			<Cursor1 position="1218" topLine="24" />
 		</Cursor>
 	</File>
-	<File name="include/TetrisCanvas.h" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src/DrawingContextInfo.cpp" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="2789" topLine="72" />
+			<Cursor1 position="198" topLine="9" />
 		</Cursor>
 	</File>
-	<File name="src/BlockDrawingTool.cpp" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="include/DrawingContextInfo.h" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1572" topLine="11" />
+			<Cursor1 position="0" topLine="12" />
 		</Cursor>
 	</File>
-	<File name="include/AdvancedGameBoardDrawingTool.h" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src/GtkGameFlow.cpp" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="422" topLine="6" />
+			<Cursor1 position="1847" topLine="39" />
+		</Cursor>
+	</File>
+	<File name="include/BlockDrawingTool.h" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="801" topLine="23" />
+		</Cursor>
+	</File>
+	<File name="include/GameDrawingTool.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1251" topLine="20" />
+		</Cursor>
+	</File>
+	<File name="src/GameBoardDrawingTool.cpp" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1840" topLine="40" />
 		</Cursor>
 	</File>
 </CodeBlocks_layout_file>
